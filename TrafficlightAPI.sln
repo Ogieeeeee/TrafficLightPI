@@ -5,9 +5,7 @@ VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrafficlightAPI", "TrafficlightAPI\TrafficlightAPI.csproj", "{00F142D0-D150-4F69-8896-6C4CDE166970}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrovePiDevice", "..\..\grovepi\iot-master\iot-master\src\devices\GrovePi\GrovePiDevice.csproj", "{6F1C46B4-8ADD-4333-85DF-0DBBB028DB96}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrovePiDevice.sample", "..\..\grovepi\iot-master\iot-master\src\devices\GrovePi\samples\GrovePiDevice.sample.csproj", "{4287E6CD-FC46-4603-9A67-E9455B180E57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrovePiDevice", "iot\src\devices\GrovePi\GrovePiDevice.csproj", "{AEF53FFB-4154-42A3-AB93-791E8C17B81B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +17,10 @@ Global
 		{00F142D0-D150-4F69-8896-6C4CDE166970}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00F142D0-D150-4F69-8896-6C4CDE166970}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00F142D0-D150-4F69-8896-6C4CDE166970}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F1C46B4-8ADD-4333-85DF-0DBBB028DB96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F1C46B4-8ADD-4333-85DF-0DBBB028DB96}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F1C46B4-8ADD-4333-85DF-0DBBB028DB96}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F1C46B4-8ADD-4333-85DF-0DBBB028DB96}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4287E6CD-FC46-4603-9A67-E9455B180E57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4287E6CD-FC46-4603-9A67-E9455B180E57}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4287E6CD-FC46-4603-9A67-E9455B180E57}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4287E6CD-FC46-4603-9A67-E9455B180E57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEF53FFB-4154-42A3-AB93-791E8C17B81B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEF53FFB-4154-42A3-AB93-791E8C17B81B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEF53FFB-4154-42A3-AB93-791E8C17B81B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEF53FFB-4154-42A3-AB93-791E8C17B81B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

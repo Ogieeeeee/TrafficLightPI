@@ -8,11 +8,11 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="System.Device.Gpio" Version="0.1.0-prerelease.19356.1" />
+    <PackageReference Include="System.Device.Gpio" Version="0.1.0-prerelease.19361.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\grovepi\iot-master\iot-master\src\devices\GrovePi\GrovePiDevice.csproj" />
+    <ProjectReference Include="..\iot\src\devices\GrovePi\GrovePiDevice.csproj" />
   </ItemGroup>
 
 </Project>
