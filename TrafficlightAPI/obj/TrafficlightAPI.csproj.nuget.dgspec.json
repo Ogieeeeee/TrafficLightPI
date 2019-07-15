@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\okell\\OneDrive\\Documenten\\Ogie\\Projects\\RaspberryPi\\TrafficLightPI\\TrafficlightAPI\\TrafficlightAPI.csproj": {}
+    "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\TrafficlightAPI\\TrafficlightAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\okell\\OneDrive\\Documenten\\Ogie\\Projects\\RaspberryPi\\TrafficLightPI\\iot\\src\\devices\\GrovePi\\GrovePiDevice.csproj": {
+    "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\iot\\src\\devices\\GrovePi\\GrovePiDevice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\okell\\OneDrive\\Documenten\\Ogie\\Projects\\RaspberryPi\\TrafficLightPI\\iot\\src\\devices\\GrovePi\\GrovePiDevice.csproj",
+        "projectUniqueName": "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\iot\\src\\devices\\GrovePi\\GrovePiDevice.csproj",
         "projectName": "GrovePiDevice",
-        "projectPath": "C:\\Users\\okell\\OneDrive\\Documenten\\Ogie\\Projects\\RaspberryPi\\TrafficLightPI\\iot\\src\\devices\\GrovePi\\GrovePiDevice.csproj",
-        "packagesPath": "C:\\Users\\okell\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\okell\\OneDrive\\Documenten\\Ogie\\Projects\\RaspberryPi\\TrafficLightPI\\iot\\src\\devices\\GrovePi\\obj\\",
+        "projectPath": "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\iot\\src\\devices\\GrovePi\\GrovePiDevice.csproj",
+        "packagesPath": "C:\\Users\\O.Kelleci\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\iot\\src\\devices\\GrovePi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\okell\\OneDrive\\Documenten\\Ogie\\Projects\\RaspberryPi\\TrafficLightPI\\iot\\NuGet.Config",
-          "C:\\Users\\okell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\iot\\NuGet.Config",
+          "C:\\Users\\O.Kelleci\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -59,7 +59,7 @@
             },
             "System.Device.Gpio": {
               "target": "Package",
-              "version": "[0.1.0-prerelease.19361.1, )"
+              "version": "[0.1.0-prerelease.19356.1, )"
             },
             "System.Memory": {
               "target": "Package",
@@ -84,20 +84,20 @@
         }
       }
     },
-    "C:\\Users\\okell\\OneDrive\\Documenten\\Ogie\\Projects\\RaspberryPi\\TrafficLightPI\\TrafficlightAPI\\TrafficlightAPI.csproj": {
+    "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\TrafficlightAPI\\TrafficlightAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\okell\\OneDrive\\Documenten\\Ogie\\Projects\\RaspberryPi\\TrafficLightPI\\TrafficlightAPI\\TrafficlightAPI.csproj",
+        "projectUniqueName": "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\TrafficlightAPI\\TrafficlightAPI.csproj",
         "projectName": "TrafficlightAPI",
-        "projectPath": "C:\\Users\\okell\\OneDrive\\Documenten\\Ogie\\Projects\\RaspberryPi\\TrafficLightPI\\TrafficlightAPI\\TrafficlightAPI.csproj",
-        "packagesPath": "C:\\Users\\okell\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\okell\\OneDrive\\Documenten\\Ogie\\Projects\\RaspberryPi\\TrafficLightPI\\TrafficlightAPI\\obj\\",
+        "projectPath": "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\TrafficlightAPI\\TrafficlightAPI.csproj",
+        "packagesPath": "C:\\Users\\O.Kelleci\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\TrafficlightAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\okell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\O.Kelleci\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -110,8 +110,8 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Users\\okell\\OneDrive\\Documenten\\Ogie\\Projects\\RaspberryPi\\TrafficLightPI\\iot\\src\\devices\\GrovePi\\GrovePiDevice.csproj": {
-                "projectPath": "C:\\Users\\okell\\OneDrive\\Documenten\\Ogie\\Projects\\RaspberryPi\\TrafficLightPI\\iot\\src\\devices\\GrovePi\\GrovePiDevice.csproj"
+              "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\iot\\src\\devices\\GrovePi\\GrovePiDevice.csproj": {
+                "projectPath": "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\iot\\src\\devices\\GrovePi\\GrovePiDevice.csproj"
               }
             }
           }
@@ -142,9 +142,11 @@
               "version": "[2.2.5, )",
               "autoReferenced": true
             },
-            "System.Device.Gpio": {
+            "Microsoft.Net.Compilers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[0.1.0-prerelease.19361.1, )"
+              "version": "[2.8.2, )"
             }
           },
           "imports": [
