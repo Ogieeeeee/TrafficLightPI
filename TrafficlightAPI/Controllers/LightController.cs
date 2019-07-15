@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Device.Gpio;
 using TrafficlightAPI.Models;
 using TrafficlightAPI.Interfaces;
+using System.Threading;
 
 namespace TrafficlightAPI.Controllers
 {
@@ -22,7 +23,7 @@ namespace TrafficlightAPI.Controllers
         //I2cConnectionSettings i2CConnectionSettings;
         //int pulse = 0;
 
-        private IPIManager _piManager; 
+        public static IPIManager _piManager; 
 
         public LightsController(IPIManager pIManager)
         {
@@ -49,42 +50,28 @@ namespace TrafficlightAPI.Controllers
         [HttpGet("{color}/on")]
         public ActionResult<string> TurnLightOn(Colors color)
         {
-            if (color == Colors.green)
-            {
-                _piManager.grovePi.DigitalWrite(GrovePort.DigitalPin4, PinValue.High);
-            }
-            else if (color == Colors.red)
-            {
-                _piManager.grovePi.DigitalWrite(GrovePort.DigitalPin3, PinValue.High);
-            }
-            else if (color == Colors.yellow)
-            {
-                _piManager.grovePi.DigitalWrite(GrovePort.DigitalPin2, PinValue.High);
-            }
-
-
-
-            return $"Succesfully turned {color} on";
+            return _piManager.TurnLightOn(color);
         }
 
         [HttpGet("{color}/off")]
         public ActionResult<string> TurnLightOff(Colors color)
         {
-            if (color == Colors.green)
-            {
-                _piManager.grovePi.DigitalWrite(GrovePort.DigitalPin4, PinValue.Low);
-            }
-            else if (color == Colors.red)
-            {
-                _piManager.grovePi.DigitalWrite(GrovePort.DigitalPin3, PinValue.Low);
-            }
-            else if (color == Colors.yellow)
-            {
-                _piManager.grovePi.DigitalWrite(GrovePort.DigitalPin2, PinValue.Low);
-            }
-
-            return $"Succesfully turned {color} off";
+            return _piManager.TurnLightOff(color);
         }
+
+        [HttpGet("GetPulse")]
+        public ActionResult<int> GetPulse()
+        {
+            return _piManager.GetPulse();
+        }
+
+        [HttpGet("IncrementPulse")]
+        public ActionResult<int> IncrementPulse()
+        {
+            return _piManager.IncrementPulse();
+        }
+
+
 
 
         //// POST api/values
@@ -107,10 +94,6 @@ namespace TrafficlightAPI.Controllers
         //}
 
 
-        public void IncrementPulse()
-        {
-            _piManager.pulse++;
 
-        }
     }
 }

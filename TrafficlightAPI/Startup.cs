@@ -28,6 +28,7 @@ namespace TrafficlightAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IPIManager, PIManager>();
+            services.AddHostedService<HelloWorldHostedService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
