@@ -32,31 +32,45 @@ namespace TrafficlightAPI
             _piManager = pIManager;
         }
 
+
+
         public Task StartAsync(CancellationToken cancellationToken)
         {
             Console.WriteLine("STARTING");
             //piManager = new PIManager();
             PulseCheckBegin = _piManager.GetPulse();
-            apiStatus = State.APICallIsMade;
 
-            _timer = new Timer(CheckForAPICallEvery60Seconds, null, 0, 10_000) ;
+            Console.WriteLine($"PulseCheckerBegin: {PulseCheckBegin}");
+            apiStatus = State.APICallIsNotMadeFirstTry;
+
+
+            // change 10_000  = 10 sec,  60_000 = 1 min
+            // first 10_000 = delay when it should start executing the CheckForAPICallEvert120seconds method
+            // the second 10_000 is when it should execute over and over 
+            // press ctrl + shift to check method explenation
+
+
+            _timer = new Timer(CheckForAPICallEvery120Seconds, null, 10_000 ,10_000) ;
 
             return Task.CompletedTask;
         }
-        void CheckForAPICallEvery60Seconds(object state)
+
+
+
+        void CheckForAPICallEvery120Seconds(object state)
         {
             PulseCheckAfter = _piManager.GetPulse();
 
             if(PulseCheckAfter > PulseCheckBegin)
             {
+                Console.WriteLine($"PulseCheckerAfter: {PulseCheckAfter}");
+
+
                 apiStatus = State.APICallIsMade;
 
-                _piManager.TurnLightOn(Colors.green);
-                _piManager.TurnLightOff(Colors.red);
-                Console.WriteLine("Turned green light on");
-                Console.WriteLine("Changed timer");
-                _timer.Change(0, 10_000);
-                
+                Console.WriteLine("GreenLight Should be on");
+                Console.WriteLine("Red light hsould be off");
+
             }
             else
             {
@@ -67,12 +81,15 @@ namespace TrafficlightAPI
                 else if ( apiStatus == State.APICallIsNotMadeFirstTry)
                 {
                     apiStatus = State.APICallIsNotMadeSecondTry;
+                    Console.WriteLine("1 min should be passed");
                 }
                 else if ( apiStatus == State.APICallIsNotMadeSecondTry)
                 {
-                    Console.WriteLine("tunred red light on");
+                    Console.WriteLine("2 mins should be passed");
+                    Console.WriteLine("turned red light on");
                     _piManager.TurnLightOn(Colors.red);
                     _piManager.TurnLightOff(Colors.green);
+                    _timer.Change(20_000, 20_000);
                 }
             }
 
@@ -85,7 +102,9 @@ namespace TrafficlightAPI
         {
             //New Timer does not have a stop. 
             _timer?.Change(Timeout.Infinite, 0);
+            Console.WriteLine("Stopped Timer");
             return Task.CompletedTask;
         }
+
     }
 }

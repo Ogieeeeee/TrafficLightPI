@@ -19,8 +19,5 @@ namespace TrafficlightAPI.Interfaces
         int GetPulse();
         int IncrementPulse();
 
-
-
-
     }
 }

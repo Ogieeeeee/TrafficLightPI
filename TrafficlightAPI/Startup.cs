@@ -3,23 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using TrafficlightAPI.Interfaces;
 using TrafficlightAPI.Managers;
 
+
+
 namespace TrafficlightAPI
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration /*, HelloWorldHostedService service */)
         {
             Configuration = configuration;
+            //service.StartAsync(new System.Threading.CancellationToken());
         }
 
         public IConfiguration Configuration { get; }
@@ -28,7 +31,8 @@ namespace TrafficlightAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IPIManager, PIManager>();
-            services.AddHostedService<HelloWorldHostedService>();
+            services.AddSingleton<IHostedService, HelloWorldHostedService>();
+            //services.AddHostedService<HelloWorldHostedService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

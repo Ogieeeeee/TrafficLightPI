@@ -8,12 +8,15 @@ using TrafficlightAPI.Interfaces;
 using Iot.Device.GrovePiDevice.Models;
 using TrafficlightAPI.Models;
 using System.Device.Gpio;
+using Microsoft.Extensions.Hosting;
 
 namespace TrafficlightAPI.Managers
 {
     public class PIManager : IPIManager
     {
         public List<string> Info;
+
+
 
         I2cConnectionSettings i2CConnectionSettings;
         private GrovePi _grovePi;
@@ -40,6 +43,8 @@ namespace TrafficlightAPI.Managers
             i2CConnectionSettings = new I2cConnectionSettings(1, GrovePi.DefaultI2cAddress);
             grovePi = new GrovePi(I2cDevice.Create(i2CConnectionSettings));
             pulse = 0;
+
+
         }
 
 

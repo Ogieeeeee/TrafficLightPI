@@ -8,6 +8,7 @@ using System.Device.Gpio;
 using TrafficlightAPI.Models;
 using TrafficlightAPI.Interfaces;
 using System.Threading;
+using Microsoft.Extensions.Hosting;
 
 namespace TrafficlightAPI.Controllers
 {
@@ -16,18 +17,19 @@ namespace TrafficlightAPI.Controllers
     public class LightsController : ControllerBase
     {
 
-        //http://192.168.17.104:5000/api/red/on
 
 
         //private static GrovePi grovePi;
         //I2cConnectionSettings i2CConnectionSettings;
         //int pulse = 0;
 
-        public static IPIManager _piManager; 
+        private static IPIManager _piManager;
+        private IHostedService _helloWorldHostedService;
 
-        public LightsController(IPIManager pIManager)
+        public LightsController(IPIManager pIManager , IHostedService helloWorldHostedService )
         {
             _piManager = pIManager;
+            _helloWorldHostedService = helloWorldHostedService; 
             //i2CConnectionSettings = new I2cConnectionSettings(1, GrovePi.DefaultI2cAddress);
             //grovePi = new GrovePi(I2cDevice.Create(i2CConnectionSettings));
         }
@@ -50,7 +52,11 @@ namespace TrafficlightAPI.Controllers
         [HttpGet("{color}/on")]
         public ActionResult<string> TurnLightOn(Colors color)
         {
-            return _piManager.TurnLightOn(color);
+            _helloWorldHostedService.StopAsync(new System.Threading.CancellationToken());
+            var result = _piManager.TurnLightOn(color);
+            _helloWorldHostedService.StartAsync(new System.Threading.CancellationToken());
+
+            return result;
         }
 
         [HttpGet("{color}/off")]
