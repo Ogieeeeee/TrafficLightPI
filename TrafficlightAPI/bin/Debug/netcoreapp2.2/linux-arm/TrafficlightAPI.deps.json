@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v2.2": {
       "TrafficlightAPI/1.0.0": {
         "dependencies": {
+          "CharacterLcd": "1.0.0",
           "GrovePiDevice": "1.0.0",
           "Microsoft.AspNetCore.App": "2.2.5",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
@@ -2964,6 +2965,14 @@
           "System.Xml.XPath": "4.3.0"
         }
       },
+      "CharacterLcd/1.0.0": {
+        "dependencies": {
+          "System.Device.Gpio": "0.1.0-prerelease.19356.1"
+        },
+        "compile": {
+          "CharacterLcd.dll": {}
+        }
+      },
       "GrovePiDevice/1.0.0": {
         "dependencies": {
           "System.Device.Gpio": "0.1.0-prerelease.19356.1",
@@ -2977,6 +2986,7 @@
     ".NETCoreApp,Version=v2.2/linux-arm": {
       "TrafficlightAPI/1.0.0": {
         "dependencies": {
+          "CharacterLcd": "1.0.0",
           "GrovePiDevice": "1.0.0",
           "Microsoft.AspNetCore.App": "2.2.5",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
@@ -7002,6 +7012,14 @@
           "System.Xml.XPath": "4.3.0"
         }
       },
+      "CharacterLcd/1.0.0": {
+        "dependencies": {
+          "System.Device.Gpio": "0.1.0-prerelease.19356.1"
+        },
+        "runtime": {
+          "CharacterLcd.dll": {}
+        }
+      },
       "GrovePiDevice/1.0.0": {
         "dependencies": {
           "System.Device.Gpio": "0.1.0-prerelease.19356.1",
@@ -9055,6 +9073,11 @@
       "sha512": "sha512-jw9oHHEIVW53mHY9PgrQa98Xo2IZ0ZjrpdOTmtvk+Rvg4tq7dydmxdNqUvJ5YwjDqhn75mBXWttWjiKhWP53LQ==",
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
+    },
+    "CharacterLcd/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "GrovePiDevice/1.0.0": {
       "type": "project",

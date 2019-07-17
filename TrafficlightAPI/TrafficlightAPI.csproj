@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\iot\src\devices\CharacterLcd\CharacterLcd.csproj" />
     <ProjectReference Include="..\iot\src\devices\GrovePi\GrovePiDevice.csproj" />
   </ItemGroup>
 

@@ -4,6 +4,77 @@
     "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\TrafficlightAPI\\TrafficlightAPI.csproj": {}
   },
   "projects": {
+    "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\iot\\src\\devices\\CharacterLcd\\CharacterLcd.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\iot\\src\\devices\\CharacterLcd\\CharacterLcd.csproj",
+        "projectName": "CharacterLcd",
+        "projectPath": "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\iot\\src\\devices\\CharacterLcd\\CharacterLcd.csproj",
+        "packagesPath": "C:\\Users\\O.Kelleci\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\iot\\src\\devices\\CharacterLcd\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\iot\\NuGet.Config",
+          "C:\\Users\\O.Kelleci\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/dotnet-iot/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/dotnet-tools-internal/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.Net.Compilers.Toolset": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.0-beta1-19127-06, )",
+              "autoReferenced": true
+            },
+            "System.Device.Gpio": {
+              "target": "Package",
+              "version": "[0.1.0-prerelease.19356.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
     "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\iot\\src\\devices\\GrovePi\\GrovePiDevice.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -77,11 +148,6 @@
           "assetTargetFallback": true,
           "warn": true
         }
-      },
-      "runtimes": {
-        "linux-arm": {
-          "#import": []
-        }
       }
     },
     "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\TrafficlightAPI\\TrafficlightAPI.csproj": {
@@ -110,6 +176,9 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
+              "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\iot\\src\\devices\\CharacterLcd\\CharacterLcd.csproj": {
+                "projectPath": "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\iot\\src\\devices\\CharacterLcd\\CharacterLcd.csproj"
+              },
               "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\iot\\src\\devices\\GrovePi\\GrovePiDevice.csproj": {
                 "projectPath": "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\iot\\src\\devices\\GrovePi\\GrovePiDevice.csproj"
               }
@@ -128,7 +197,7 @@
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.2.5, )",
+              "version": "[2.2.0, )",
               "autoReferenced": true
             },
             "Microsoft.AspNetCore.Razor.Design": {
@@ -139,7 +208,7 @@
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.2.5, )",
+              "version": "[2.2.0, )",
               "autoReferenced": true
             },
             "Microsoft.Net.Compilers": {
@@ -159,11 +228,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true
-        }
-      },
-      "runtimes": {
-        "linux-arm": {
-          "#import": []
         }
       }
     }

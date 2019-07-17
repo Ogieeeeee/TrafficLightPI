@@ -1,4 +1,5 @@
 ﻿using Iot.Device.GrovePiDevice;
+using Iot.Device.GrovePiDevice.Sensors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

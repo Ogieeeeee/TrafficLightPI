@@ -17,24 +17,22 @@ namespace TrafficlightAPI.Controllers
     public class LightsController : ControllerBase
     {
 
-
-
         //private static GrovePi grovePi;
         //I2cConnectionSettings i2CConnectionSettings;
         //int pulse = 0;
 
         private static IPIManager _piManager;
-        private IHostedService _helloWorldHostedService;
+        private IHostedService _timerHostedService;
 
-        public LightsController(IPIManager pIManager , IHostedService helloWorldHostedService )
+        public LightsController(IPIManager pIManager , IHostedService timerHostedService )
         {
             _piManager = pIManager;
-            _helloWorldHostedService = helloWorldHostedService; 
+            _timerHostedService = timerHostedService; 
             //i2CConnectionSettings = new I2cConnectionSettings(1, GrovePi.DefaultI2cAddress);
             //grovePi = new GrovePi(I2cDevice.Create(i2CConnectionSettings));
         }
 
-        // GET api/values
+        // GET api/Lights
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
@@ -49,28 +47,32 @@ namespace TrafficlightAPI.Controllers
         //    return "value";
         //}
 
+        // Example: api/Lights/red/on
         [HttpGet("{color}/on")]
         public ActionResult<string> TurnLightOn(Colors color)
         {
-            _helloWorldHostedService.StopAsync(new System.Threading.CancellationToken());
+            _timerHostedService.StopAsync(new System.Threading.CancellationToken());
             var result = _piManager.TurnLightOn(color);
-            _helloWorldHostedService.StartAsync(new System.Threading.CancellationToken());
+            _timerHostedService.StartAsync(new System.Threading.CancellationToken());
 
             return result;
         }
 
+        // Example: api/Lights/red/off
         [HttpGet("{color}/off")]
         public ActionResult<string> TurnLightOff(Colors color)
         {
             return _piManager.TurnLightOff(color);
         }
 
+        // Example: api/Lights/GetPulse
         [HttpGet("GetPulse")]
         public ActionResult<int> GetPulse()
         {
             return _piManager.GetPulse();
         }
 
+        // Example: api/Lights/IncrementPulse
         [HttpGet("IncrementPulse")]
         public ActionResult<int> IncrementPulse()
         {

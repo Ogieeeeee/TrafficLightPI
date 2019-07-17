@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrafficlightAPI", "Trafficl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrovePiDevice", "iot\src\devices\GrovePi\GrovePiDevice.csproj", "{AEF53FFB-4154-42A3-AB93-791E8C17B81B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CharacterLcd", "iot\src\devices\CharacterLcd\CharacterLcd.csproj", "{EE0525B3-DB12-41F3-92F8-06222A15D2CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AEF53FFB-4154-42A3-AB93-791E8C17B81B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEF53FFB-4154-42A3-AB93-791E8C17B81B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEF53FFB-4154-42A3-AB93-791E8C17B81B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE0525B3-DB12-41F3-92F8-06222A15D2CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE0525B3-DB12-41F3-92F8-06222A15D2CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE0525B3-DB12-41F3-92F8-06222A15D2CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE0525B3-DB12-41F3-92F8-06222A15D2CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
