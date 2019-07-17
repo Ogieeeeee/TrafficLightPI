@@ -12,17 +12,16 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using TrafficlightAPI.Interfaces;
 using TrafficlightAPI.Managers;
-
-
+using TrafficlightAPI.Service;
 
 namespace TrafficlightAPI
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration /*, HelloWorldHostedService service */)
+        public Startup(IConfiguration configuration , OrangeTimerHostedService service)
         {
             Configuration = configuration;
-            //service.StartAsync(new System.Threading.CancellationToken());
+            service.StopAsync(new System.Threading.CancellationToken());
         }
 
         public IConfiguration Configuration { get; }
@@ -31,7 +30,11 @@ namespace TrafficlightAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IPIManager, PIManager>();
-            services.AddSingleton<IHostedService, TimerHostedService>();
+            services.AddSingleton<IHostedService, GreenTimerHostedService>();
+            //services.AddSingleton<IHostedService, OrangeTimerHostedService>();
+            services.AddHostedService<OrangeTimerHostedService>();
+
+
             //services.AddHostedService<HelloWorldHostedService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

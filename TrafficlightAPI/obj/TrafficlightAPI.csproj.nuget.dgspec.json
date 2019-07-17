@@ -73,6 +73,11 @@
           "assetTargetFallback": true,
           "warn": true
         }
+      },
+      "runtimes": {
+        "linux-arm": {
+          "#import": []
+        }
       }
     },
     "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\iot\\src\\devices\\GrovePi\\GrovePiDevice.csproj": {
@@ -148,6 +153,11 @@
           "assetTargetFallback": true,
           "warn": true
         }
+      },
+      "runtimes": {
+        "linux-arm": {
+          "#import": []
+        }
       }
     },
     "C:\\Users\\O.Kelleci\\Desktop\\Projects\\RaspBerryPi\\TrafficLightPI\\TrafficlightAPI\\TrafficlightAPI.csproj": {
@@ -197,7 +207,7 @@
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.2.0, )",
+              "version": "[2.2.5, )",
               "autoReferenced": true
             },
             "Microsoft.AspNetCore.Razor.Design": {
@@ -208,7 +218,7 @@
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.2.0, )",
+              "version": "[2.2.5, )",
               "autoReferenced": true
             },
             "Microsoft.Net.Compilers": {
@@ -228,6 +238,11 @@
           ],
           "assetTargetFallback": true,
           "warn": true
+        }
+      },
+      "runtimes": {
+        "linux-arm": {
+          "#import": []
         }
       }
     }

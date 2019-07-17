@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "9435a78505bbd83f1af209fadda87e548666c84c"
+    "signature": ""
   },
   "compilationOptions": {
     "defines": [
@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v2.2": {
       "TrafficlightAPI/1.0.0": {
         "dependencies": {
+          "CharacterLcd": "1.0.0",
           "GrovePiDevice": "1.0.0",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
@@ -94,6 +95,17 @@
         },
         "compile": {
           "ref/netstandard1.2/System.Runtime.WindowsRuntime.dll": {}
+        }
+      },
+      "CharacterLcd/1.0.0": {
+        "dependencies": {
+          "System.Device.Gpio": "0.1.0-prerelease.19356.1"
+        },
+        "runtime": {
+          "CharacterLcd.dll": {}
+        },
+        "compile": {
+          "CharacterLcd.dll": {}
         }
       },
       "GrovePiDevice/1.0.0": {
@@ -3341,6 +3353,11 @@
       "sha512": "sha512-xbgfgewneLCfKQfz0VzKsYDacZ680CudYw0uzj0bZ8ATpotkwicgtAsyJZ/J7/Dh2QIwpadjA2zLW/LFk7FKiA==",
       "path": "system.runtime.windowsruntime/4.3.0",
       "hashPath": "system.runtime.windowsruntime.4.3.0.nupkg.sha512"
+    },
+    "CharacterLcd/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "GrovePiDevice/1.0.0": {
       "type": "project",

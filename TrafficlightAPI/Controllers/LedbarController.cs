@@ -24,19 +24,8 @@ namespace TrafficlightAPI.Controllers
             _timerHostedService = timerHostedService;
         }
 
-
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
-        {
-            return _piManager.GetList();
-            //return new string[] { "value1", "value2" };
-        }
-
-
-
         [HttpGet("ShowText/{text}")]
-        public ActionResult<string> IncrementPulse(string text)
+        public ActionResult<string> ShowText(string text)
         {
             var i2cLcdDevice = I2cDevice.Create(new I2cConnectionSettings(busId: 1, deviceAddress: 0x3E));
             var i2cRgbDevice = I2cDevice.Create(new I2cConnectionSettings(busId: 1, deviceAddress: 0x62));
@@ -47,9 +36,6 @@ namespace TrafficlightAPI.Controllers
             
             return $"Succesfully printed text: {text}";
         }
-
-
-
 
     }
 }

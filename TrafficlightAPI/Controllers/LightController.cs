@@ -9,6 +9,7 @@ using TrafficlightAPI.Models;
 using TrafficlightAPI.Interfaces;
 using System.Threading;
 using Microsoft.Extensions.Hosting;
+using TrafficlightAPI.Service;
 
 namespace TrafficlightAPI.Controllers
 {
@@ -22,12 +23,15 @@ namespace TrafficlightAPI.Controllers
         //int pulse = 0;
 
         private static IPIManager _piManager;
-        private IHostedService _timerHostedService;
+        private IHostedService _greenTimerHostedService;
+        private OrangeTimerHostedService _orangeTimerHostedService;
 
-        public LightsController(IPIManager pIManager , IHostedService timerHostedService )
+        public LightsController(IPIManager pIManager, IHostedService timerHostedService, OrangeTimerHostedService orangeTimerhostedService)
         {
             _piManager = pIManager;
-            _timerHostedService = timerHostedService; 
+            _greenTimerHostedService = timerHostedService;
+            _orangeTimerHostedService = orangeTimerhostedService;
+
             //i2CConnectionSettings = new I2cConnectionSettings(1, GrovePi.DefaultI2cAddress);
             //grovePi = new GrovePi(I2cDevice.Create(i2CConnectionSettings));
         }
@@ -51,9 +55,22 @@ namespace TrafficlightAPI.Controllers
         [HttpGet("{color}/on")]
         public ActionResult<string> TurnLightOn(Colors color)
         {
-            _timerHostedService.StopAsync(new System.Threading.CancellationToken());
-            var result = _piManager.TurnLightOn(color);
-            _timerHostedService.StartAsync(new System.Threading.CancellationToken());
+            string result = "";
+            if (color == Colors.green)
+            {
+                _greenTimerHostedService.StopAsync(new System.Threading.CancellationToken());
+                result = _piManager.TurnLightOn(color);
+                _greenTimerHostedService.StartAsync(new System.Threading.CancellationToken());
+
+            }
+
+            else if (color == Colors.yellow)
+            {
+                _orangeTimerHostedService.StartAsync(new System.Threading.CancellationToken());
+                result = _piManager.TurnLightOn(color);
+                _orangeTimerHostedService.StopAsync(new System.Threading.CancellationToken());
+
+            }
 
             return result;
         }
