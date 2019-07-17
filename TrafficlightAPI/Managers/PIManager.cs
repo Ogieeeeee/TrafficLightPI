@@ -20,6 +20,7 @@ namespace TrafficlightAPI.Managers
 
         public List<string> Info;
         public int pulse { get; set; }
+        public int greenPulse { get; set; }
         I2cConnectionSettings i2CConnectionSettings;
 
 

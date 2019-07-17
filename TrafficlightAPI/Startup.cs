@@ -18,10 +18,9 @@ namespace TrafficlightAPI
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration , OrangeTimerHostedService service)
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            service.StopAsync(new System.Threading.CancellationToken());
         }
 
         public IConfiguration Configuration { get; }
@@ -30,9 +29,11 @@ namespace TrafficlightAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IPIManager, PIManager>();
-            services.AddSingleton<IHostedService, GreenTimerHostedService>();
+            services.AddSingleton<IGreenHostedService, GreenTimerHostedService>();
+            services.AddSingleton<IOrangeTimerHostedService, OrangeTimerHostedService>();
+
             //services.AddSingleton<IHostedService, OrangeTimerHostedService>();
-            services.AddHostedService<OrangeTimerHostedService>();
+            //services.AddHostedService<OrangeTimerHostedService>();
 
 
             //services.AddHostedService<HelloWorldHostedService>();

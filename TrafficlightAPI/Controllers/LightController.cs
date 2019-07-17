@@ -23,13 +23,13 @@ namespace TrafficlightAPI.Controllers
         //int pulse = 0;
 
         private static IPIManager _piManager;
-        private IHostedService _greenTimerHostedService;
-        private OrangeTimerHostedService _orangeTimerHostedService;
+        private IGreenHostedService _greenTimerHostedService;
+        private IOrangeTimerHostedService _orangeTimerHostedService;
 
-        public LightsController(IPIManager pIManager, IHostedService timerHostedService, OrangeTimerHostedService orangeTimerhostedService)
+        public LightsController(IPIManager pIManager, IGreenHostedService greenTimerHostedService, IOrangeTimerHostedService orangeTimerhostedService)
         {
             _piManager = pIManager;
-            _greenTimerHostedService = timerHostedService;
+            _greenTimerHostedService = greenTimerHostedService;
             _orangeTimerHostedService = orangeTimerhostedService;
 
             //i2CConnectionSettings = new I2cConnectionSettings(1, GrovePi.DefaultI2cAddress);
@@ -66,9 +66,9 @@ namespace TrafficlightAPI.Controllers
 
             else if (color == Colors.yellow)
             {
-                _orangeTimerHostedService.StartAsync(new System.Threading.CancellationToken());
-                result = _piManager.TurnLightOn(color);
                 _orangeTimerHostedService.StopAsync(new System.Threading.CancellationToken());
+                result = _piManager.TurnLightOn(color);
+                _orangeTimerHostedService.StartAsync(new System.Threading.CancellationToken());
 
             }
 

@@ -51,6 +51,3 @@ C:\Users\O.Kelleci\Desktop\Projects\RaspBerryPi\TrafficLightPI\TrafficlightAPI\o
 C:\Users\O.Kelleci\Desktop\Projects\RaspBerryPi\TrafficLightPI\TrafficlightAPI\obj\Debug\netcoreapp2.2\TrafficlightAPI.pdb
 C:\Users\O.Kelleci\Desktop\Projects\RaspBerryPi\TrafficLightPI\TrafficlightAPI\bin\Debug\netcoreapp2.2\CharacterLcd.dll
 C:\Users\O.Kelleci\Desktop\Projects\RaspBerryPi\TrafficLightPI\TrafficlightAPI\bin\Debug\netcoreapp2.2\CharacterLcd.pdb
-C:\Users\O.Kelleci\Desktop\Projects\RaspBerryPi\TrafficLightPI\TrafficlightAPI\bin\Debug\netcoreapp2.2\appsettings.Development.json
-C:\Users\O.Kelleci\Desktop\Projects\RaspBerryPi\TrafficLightPI\TrafficlightAPI\bin\Debug\netcoreapp2.2\appsettings.json
-C:\Users\O.Kelleci\Desktop\Projects\RaspBerryPi\TrafficLightPI\TrafficlightAPI\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
