@@ -41,7 +41,7 @@ namespace TrafficlightAPI
             //services.AddHostedService<HelloWorldHostedService>();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "RaspberryPI API", Version = "v1" });
 
 
             });
@@ -71,7 +71,7 @@ namespace TrafficlightAPI
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "TrafficLightAPI - Raspberry PI");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "TrafficLightAPI");
                 c.RoutePrefix = string.Empty;
 
             });

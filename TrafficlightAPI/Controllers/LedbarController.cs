@@ -16,15 +16,12 @@ namespace TrafficlightAPI.Controllers
     public class LedbarController: ControllerBase
     {
         private static IPIManager _piManager;
-        private IHostedService _timerHostedService;
-
-        public LedbarController(IPIManager pIManager, IHostedService timerHostedService)
+        public LedbarController(IPIManager pIManager)
         {
             _piManager = pIManager;
-            _timerHostedService = timerHostedService;
         }
 
-        [HttpGet("ShowText/{text}")]
+        [HttpGet("ShowText/{text}/{color}")]
         public ActionResult<string> ShowText(string text)
         {
             var i2cLcdDevice = I2cDevice.Create(new I2cConnectionSettings(busId: 1, deviceAddress: 0x3E));
@@ -32,7 +29,7 @@ namespace TrafficlightAPI.Controllers
             var lcd = new LcdRgb1602(i2cLcdDevice, i2cRgbDevice);
             
             lcd.Write(text);
-            lcd.SetBacklightColor(Color.SpringGreen);
+            lcd.SetBacklightColor(Color.Azure);
             
             return $"Succesfully printed text: {text}";
         }
