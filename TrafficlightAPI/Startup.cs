@@ -13,6 +13,8 @@ using Microsoft.Extensions.Options;
 using TrafficlightAPI.Interfaces;
 using TrafficlightAPI.Managers;
 using TrafficlightAPI.Service;
+using Microsoft.OpenApi.Models;
+
 
 namespace TrafficlightAPI
 {
@@ -37,12 +39,19 @@ namespace TrafficlightAPI
 
 
             //services.AddHostedService<HelloWorldHostedService>();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+
+
+            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -53,7 +62,22 @@ namespace TrafficlightAPI
                 app.UseHsts();
             }
 
+
+
             app.UseHttpsRedirection();
+
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "TrafficLightAPI - Raspberry PI");
+                c.RoutePrefix = string.Empty;
+
+            });
+
+
+
             app.UseMvc();
         }
     }
