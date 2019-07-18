@@ -20,11 +20,7 @@ namespace TrafficlightAPI.Managers
 
         public List<string> Info;
         public int pulse { get; set; }
-        public int greenPulse { get; set; }
         I2cConnectionSettings i2CConnectionSettings;
-
-
-
 
         private GrovePi _grovePi;
         public GrovePi grovePi
@@ -46,27 +42,29 @@ namespace TrafficlightAPI.Managers
             Info = new List<string>();
             pulse = 0;
 
-
+            grovePi.PinMode(GrovePort.DigitalPin4, PinMode.Output);
+            grovePi.PinMode(GrovePort.DigitalPin3, PinMode.Output);
+            grovePi.PinMode(GrovePort.DigitalPin2, PinMode.Output);
 
 
         }
-
 
         public List<string> GetList()
         {
             return Info;
         }
 
-
         public string TurnLightOn(Colors color)
         {
 
-
             if (color == Colors.green)
             {
+                //Low = Turn off
+                //High = Turn on
                 grovePi.DigitalWrite(GrovePort.DigitalPin4, PinValue.High);
                 grovePi.DigitalWrite(GrovePort.DigitalPin3, PinValue.Low);
 
+                //Api call is made increments pulse by 1
                 IncrementPulse();
             }
             else if (color == Colors.red)
@@ -78,12 +76,8 @@ namespace TrafficlightAPI.Managers
                 grovePi.DigitalWrite(GrovePort.DigitalPin2, PinValue.High);
             }
 
-            
 
             return $"Succesfully turned {color} on, pulse = {pulse}";
-
-
-
         }
 
         public string TurnLightOff(Colors color)
@@ -105,18 +99,16 @@ namespace TrafficlightAPI.Managers
             return $"Succesfully turned {color} off, pulse = {pulse}";
         }
 
-
         public int GetPulse()
         {
             return pulse;
         }
 
-
-       
         public int IncrementPulse()
         {
             pulse++;
             return pulse;
         }
+
     }
 }

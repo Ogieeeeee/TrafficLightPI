@@ -13,7 +13,6 @@ namespace TrafficlightAPI.Interfaces
     {
         GrovePi grovePi {get;}
         int pulse { get; set; }
-        int greenPulse { get; set; }
 
         List<string> GetList();
         string TurnLightOn(Colors color);

@@ -17,11 +17,6 @@ namespace TrafficlightAPI.Controllers
     [ApiController]
     public class LightsController : ControllerBase
     {
-
-        //private static GrovePi grovePi;
-        //I2cConnectionSettings i2CConnectionSettings;
-        //int pulse = 0;
-
         private static IPIManager _piManager;
         private IGreenHostedService _greenTimerHostedService;
         private IOrangeTimerHostedService _orangeTimerHostedService;
@@ -31,24 +26,13 @@ namespace TrafficlightAPI.Controllers
             _piManager = pIManager;
             _greenTimerHostedService = greenTimerHostedService;
             _orangeTimerHostedService = orangeTimerhostedService;
-
-            //i2CConnectionSettings = new I2cConnectionSettings(1, GrovePi.DefaultI2cAddress);
-            //grovePi = new GrovePi(I2cDevice.Create(i2CConnectionSettings));
         }
 
         // GET api/Lights
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
-        {
-            return _piManager.GetList();
-            //return new string[] { "value1", "value2" };
-        }
-
-        ////// GET api/values/5
-        //[HttpGet("{id}")]
-        //public ActionResult<string> Get(int id)
+        //[HttpGet]
+        //public ActionResult<IEnumerable<string>> Get()
         //{
-        //    return "value";
+        //    return _piManager.GetList();
         //}
 
         // Example: api/Lights/red/on
@@ -58,18 +42,25 @@ namespace TrafficlightAPI.Controllers
             string result = "";
             if (color == Colors.green)
             {
+                // This piece of code is triggered when a green api call is made.
+                // It basically resets the timer by turning the service off and on.
+                  
                 _greenTimerHostedService.StopAsync(new System.Threading.CancellationToken());
                 result = _piManager.TurnLightOn(color);
                 _greenTimerHostedService.StartAsync(new System.Threading.CancellationToken());
-
             }
 
             else if (color == Colors.yellow)
             {
+                // Basically the same as green. 
                 _orangeTimerHostedService.StopAsync(new System.Threading.CancellationToken());
                 result = _piManager.TurnLightOn(color);
                 _orangeTimerHostedService.StartAsync(new System.Threading.CancellationToken());
+            }
 
+            else if (color == Colors.red)
+            {
+                result = _piManager.TurnLightOn(color);
             }
 
             return result;
@@ -88,37 +79,6 @@ namespace TrafficlightAPI.Controllers
         {
             return _piManager.GetPulse();
         }
-
-        // Example: api/Lights/IncrementPulse
-        [HttpGet("IncrementPulse")]
-        public ActionResult<int> IncrementPulse()
-        {
-            return _piManager.IncrementPulse();
-        }
-
-
-
-
-        //// POST api/values
-        //[HttpPost]
-        //public void Post([FromBody] string value)
-        //{
-
-        //}
-
-        //// PUT api/values/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
-
-        //// DELETE api/values/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
-
-
 
     }
 }

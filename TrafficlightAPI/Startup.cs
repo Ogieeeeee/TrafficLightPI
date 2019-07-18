@@ -34,16 +34,9 @@ namespace TrafficlightAPI
             services.AddSingleton<IGreenHostedService, GreenTimerHostedService>();
             services.AddSingleton<IOrangeTimerHostedService, OrangeTimerHostedService>();
 
-            //services.AddSingleton<IHostedService, OrangeTimerHostedService>();
-            //services.AddHostedService<OrangeTimerHostedService>();
-
-
-            //services.AddHostedService<HelloWorldHostedService>();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "RaspberryPI API", Version = "v1" });
-
-
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "TrafficLightAPI - RPI", Version = "v1" });
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -62,20 +55,14 @@ namespace TrafficlightAPI
                 app.UseHsts();
             }
 
-
-
             app.UseHttpsRedirection();
-
-
             app.UseSwagger();
-
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "TrafficLightAPI");
                 c.RoutePrefix = string.Empty;
 
             });
-
 
 
             app.UseMvc();

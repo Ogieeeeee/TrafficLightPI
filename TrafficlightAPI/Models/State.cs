@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 
 namespace TrafficlightAPI.Models
 {
-    public enum Colors
+    public enum State
     {
-        yellow = 2,
-        red = 3,
-        green = 4,
+        APICallIsMade = 0,
+        APICallIsNotMadeFirstTry = 1,
+        APICallIsNotMadeSecondTry = 2
     }
+
 }

@@ -13,25 +13,13 @@ using TrafficlightAPI.Models;
 namespace TrafficlightAPI.Service
 {
 
-    public enum State
-    {
-        APICallIsMade = 0,
-        APICallIsNotMadeFirstTry = 1,
-        APICallIsNotMadeSecondTry = 2
-    }
-
-    public interface IGreenHostedService 
-    {
-        Task StartAsync(CancellationToken cancellationToken);
-        Task StopAsync(CancellationToken cancellationToken);
-    }
-
-
     public class GreenTimerHostedService : IGreenHostedService, IHostedService
     {
         private Timer _timerGreen;
         private IPIManager _piManager;
-        State apiStatus;
+        private State apiStatus;
+
+        //These 2 integers are used to check if an api call is made
         int PulseCheckBegin, PulseCheckAfter;
 
         public GreenTimerHostedService(IPIManager pIManager)
@@ -39,48 +27,42 @@ namespace TrafficlightAPI.Service
             _piManager = pIManager;
         }
 
-
-
         public Task StartAsync(CancellationToken cancellationToken)
         {
             Console.WriteLine("STARTING GREEN TIMER");
 
-            //get an integer if a api call is changed... If api call is made it increments by 1
+            //Getting a integer back. This is a number of how many  api calls are made ... If api call is made it increments by 1
             PulseCheckBegin = _piManager.GetPulse();
             Console.WriteLine($"PulseCheckerBegin: {PulseCheckBegin}");
             apiStatus = State.APICallIsNotMadeFirstTry;
 
-
             // change 10_000  = 10 sec,  60_000 = 1 min
             // first 10_000 = delay when it should start executing the CheckForAPICallEvert120seconds method
             // the second 10_000 is when it should execute over and over 
-            // press ctrl + shift to check method explenation
-
-            //_timerOrange = new Timer();
-            _timerGreen = new Timer(CheckForAPICallEvery120Seconds, null, 10_000, 10_000);
+            // press ctrl + shift to check method explanation
+            _timerGreen = new Timer(CheckForAPICallEvery120Seconds, null, 60_000, 60_000);
 
             return Task.CompletedTask;
         }
 
-
-
         void CheckForAPICallEvery120Seconds(object state)
         {
+            // getting after x seconds how many appi calls are made
             PulseCheckAfter = _piManager.GetPulse();
 
+            // checks if there are api calls made. If they have the same number there is no API call made.
             if (PulseCheckAfter > PulseCheckBegin)
             {
                 Console.WriteLine($"PulseCheckerAfter: {PulseCheckAfter}");
-
-
                 apiStatus = State.APICallIsMade;
-
                 Console.WriteLine("GreenLight Should be on");
-                Console.WriteLine("Red light hsould be off");
-
+                Console.WriteLine("Red light should be off");
             }
+
+            //if there is no api call made
             else
             {
+                //changing the state and/or turn on red light
                 if (apiStatus == State.APICallIsMade)
                 {
                     apiStatus = State.APICallIsNotMadeFirstTry;
@@ -96,14 +78,17 @@ namespace TrafficlightAPI.Service
                     Console.WriteLine("turned red light on");
                     _piManager.TurnLightOn(Colors.red);
                     _piManager.TurnLightOff(Colors.green);
-                    _timerGreen.Change(20_000, 20_000);
+
+                    //Changes timer to 2 minutes so it keeps..
+                    //.. sending a turn red light on message every 2 minutes instead of 1 minute
+                    // 20_000 = 20 seconds.  // 120_0000 = 120 seconds
+                    _timerGreen.Change(120_000, 120_000);
                 }
             }
 
             PulseCheckBegin = _piManager.GetPulse();
             Console.WriteLine("Pulse begin: " + PulseCheckBegin + " " + " Pulse afteR: " + PulseCheckAfter + " State: " + apiStatus);
         }
-
 
         public Task StopAsync(CancellationToken cancellationToken)
         {

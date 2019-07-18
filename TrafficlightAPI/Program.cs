@@ -21,12 +21,5 @@ namespace TrafficlightAPI
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .UseUrls("http://*:5000");
-                //.ConfigureKestrel((context, options) =>
-                //{
-                //    // Set properties and call methods on options
-                //    options.AllowSynchronousIO = true;
-                //});
-
-
     }
 }
