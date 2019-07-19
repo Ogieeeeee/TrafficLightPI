@@ -33,6 +33,7 @@ namespace TrafficlightAPI
             services.AddSingleton<IPIManager, PIManager>();
             services.AddSingleton<IGreenHostedService, GreenTimerHostedService>();
             services.AddSingleton<IOrangeTimerHostedService, OrangeTimerHostedService>();
+            services.AddHostedService<ButtonTimerHostedService>();
 
             services.AddSwaggerGen(c =>
             {

@@ -17,7 +17,7 @@ namespace TrafficlightAPI.Service
     {
         private Timer _timerGreen;
         private IPIManager _piManager;
-        private State apiStatus;
+        private ApiState apiStatus;
 
         //These 2 integers are used to check if an api call is made
         int PulseCheckBegin, PulseCheckAfter;
@@ -34,7 +34,7 @@ namespace TrafficlightAPI.Service
             //Getting a integer back. This is a number of how many  api calls are made ... If api call is made it increments by 1
             PulseCheckBegin = _piManager.GetPulse();
             Console.WriteLine($"PulseCheckerBegin: {PulseCheckBegin}");
-            apiStatus = State.APICallIsNotMadeFirstTry;
+            apiStatus = ApiState.APICallIsNotMadeFirstTry;
 
             // change 10_000  = 10 sec,  60_000 = 1 min
             // first 10_000 = delay when it should start executing the CheckForAPICallEvert120seconds method
@@ -54,7 +54,7 @@ namespace TrafficlightAPI.Service
             if (PulseCheckAfter > PulseCheckBegin)
             {
                 Console.WriteLine($"PulseCheckerAfter: {PulseCheckAfter}");
-                apiStatus = State.APICallIsMade;
+                apiStatus = ApiState.APICallIsMade;
                 Console.WriteLine("GreenLight Should be on");
                 Console.WriteLine("Red light should be off");
             }
@@ -63,16 +63,16 @@ namespace TrafficlightAPI.Service
             else
             {
                 //changing the state and/or turn on red light
-                if (apiStatus == State.APICallIsMade)
+                if (apiStatus == ApiState.APICallIsMade)
                 {
-                    apiStatus = State.APICallIsNotMadeFirstTry;
+                    apiStatus = ApiState.APICallIsNotMadeFirstTry;
                 }
-                else if (apiStatus == State.APICallIsNotMadeFirstTry)
+                else if (apiStatus == ApiState.APICallIsNotMadeFirstTry)
                 {
-                    apiStatus = State.APICallIsNotMadeSecondTry;
+                    apiStatus = ApiState.APICallIsNotMadeSecondTry;
                     Console.WriteLine("1 min should be passed");
                 }
-                else if (apiStatus == State.APICallIsNotMadeSecondTry)
+                else if (apiStatus == ApiState.APICallIsNotMadeSecondTry)
                 {
                     Console.WriteLine("2 mins should be passed");
                     Console.WriteLine("turned red light on");
